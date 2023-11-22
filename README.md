@@ -63,6 +63,6 @@ TypeError: Cannot read property 'top' of null
 [kbone demo16]: https://github.com/Tencent/kbone/tree/develop/examples/demo16
 [mp-webpack-plugin]: https://github.com/Tencent/kbone/tree/develop/packages/mp-webpack-plugin
 [mp-webpack-plugin/src/index.js:573](https://github.com/Tencent/kbone/blob/develop/packages/mp-webpack-plugin/src/index.js#L573)
-[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+[微信开发者工具]: https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
 [ts 分支]: https://github.com/ueaner/kbone-react/tree/ts
 [提 issue]: https://github.com/ueaner/kbone-react/issues/new
