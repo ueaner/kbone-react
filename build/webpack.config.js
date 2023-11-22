@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 export default {
     mode: 'production',
     entry: {
-        index: resolve(__dirname, '../src/main.jsx'),
+        index: resolve(__dirname, '../src/main.tsx'),
     },
     output: {
         path: resolve(__dirname, '../dist/web'),
@@ -37,7 +37,8 @@ export default {
         }],
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.json']
+        modules: [__dirname, "src", "node_modules"],
+        extensions: ['.*', '.js', '.jsx', '.ts', '.tsx', '.json'],
     },
     plugins: [
         new MiniCssExtractPlugin({

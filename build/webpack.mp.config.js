@@ -16,7 +16,7 @@ const isOptimize = true // 是否压缩业务代码，开发者工具可能无�
 export default {
     mode: 'production',
     entry: {
-        index: resolve(__dirname, '../src/main.mp.jsx')
+        index: resolve(__dirname, '../src/main.mp.tsx')
     },
     output: {
         path: resolve(__dirname, '../dist/mp/common'), // 放到小程序代码目录中的 common 目录下
@@ -101,7 +101,8 @@ export default {
         }]
     },
     resolve: {
-        extensions: ['.*', '.js', '.jsx', '.json'],
+        modules: [__dirname, "src", "node_modules"],
+        extensions: ['.*', '.js', '.jsx', '.ts', '.tsx', '.json'],
         // alias: {
         //     // react: isOptimize ? 'react/index.js' : 'react/umd/react.development.js',
         //     // 'react-dom': isOptimize ? 'react-dom/index.js' : 'react-dom/umd/react-dom.development.js',
