@@ -1,4 +1,4 @@
-import { join, dirname } from 'path';
+import { resolve, dirname } from 'path';
 import webpack from 'webpack';
 //{ DefinePlugin } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -16,10 +16,10 @@ const isOptimize = true // 是否压缩业务代码，开发者工具可能无�
 export default {
     mode: 'production',
     entry: {
-        index: join(__dirname, '../src/main.mp.jsx')
+        index: resolve(__dirname, '../src/main.mp.jsx')
     },
     output: {
-        path: join(__dirname, '../dist/mp/common'), // 放到小程序代码目录中的 common 目录下
+        path: resolve(__dirname, '../dist/mp/common'), // 放到小程序代码目录中的 common 目录下
         filename: '[name].js', // 必需字段，不能修改
         library: 'createApp', // 必需字段，不能修改
         libraryExport: 'default', // 必需字段，不能修改
@@ -73,17 +73,19 @@ export default {
     module: {
         rules: [{
             test: /\.css$/,
+            exclude: /node_modules/,
             use: [
                 MiniCssExtractPlugin.loader,
                 {
                     loader: 'css-loader',
                     options: {
-                        // importLoaders: 1,
+                        importLoaders: 1,
                         modules: {
                             localIdentName: "[path][name]__[local]--[hash:5]",
                         },
                     },
                 },
+                'postcss-loader',
             ],
         }, {
             test: /\.[t|j]sx?$/,
@@ -91,6 +93,7 @@ export default {
             exclude: /node_modules/,
         }, {
             test: /\.(png|jpg|gif|svg)$/,
+            exclude: /node_modules/,
             loader: 'file-loader',
             options: {
                 name: '[name].[ext]?[contenthash]',
@@ -102,8 +105,8 @@ export default {
         // alias: {
         //     // react: isOptimize ? 'react/index.js' : 'react/umd/react.development.js',
         //     // 'react-dom': isOptimize ? 'react-dom/index.js' : 'react-dom/umd/react-dom.development.js',
-        //     // react: isOptimize ? join('./node_modules/react/index.js') : join('./node_modules/react/umd/react.development.js'),
-        //     // 'react-dom': isOptimize ? join('./node_modules/react-dom/index.js') : join('./node_modules/react-dom/umd/react-dom.development.js'),
+        //     // react: isOptimize ? resolve('./node_modules/react/index.js') : resolve('./node_modules/react/umd/react.development.js'),
+        //     // 'react-dom': isOptimize ? resolve('./node_modules/react-dom/index.js') : resolve('./node_modules/react-dom/umd/react-dom.development.js'),
         //     // react v18
         //     react: isOptimize ? 'react/umd/react.production.min.js' : 'react/umd/react.development.js',
         //     'react-dom': isOptimize ? 'react-dom/umd/react-dom.production.min.js' : 'react-dom/umd/react-dom.development.js',

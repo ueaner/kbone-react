@@ -1,4 +1,4 @@
-import { join, dirname } from 'path';
+import { resolve, dirname } from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
@@ -9,10 +9,10 @@ const __dirname = dirname(__filename);
 export default {
     mode: 'production',
     entry: {
-        index: join(__dirname, '../src/main.jsx'),
+        index: resolve(__dirname, '../src/main.jsx'),
     },
     output: {
-        path: join(__dirname, '../dist/web'),
+        path: resolve(__dirname, '../dist/web'),
         publicPath: './',
         filename: '[name].js'
     },
@@ -46,7 +46,7 @@ export default {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             chunks: ['index'],
-            template: join(__dirname, '../index.html'),
+            template: resolve(__dirname, '../index.html'),
         }),
     ],
 };
