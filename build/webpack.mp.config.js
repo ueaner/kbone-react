@@ -99,12 +99,15 @@ export default {
     },
     resolve: {
         extensions: ['.*', '.js', '.jsx', '.json'],
-        alias: {
-            react: isOptimize ? 'react/index.js' : 'react/umd/react.development.js',
-            'react-dom': isOptimize ? 'react-dom/index.js' : 'react-dom/umd/react-dom.development.js',
-            // react: isOptimize ? join('./node_modules/react/index.js') : join('./node_modules/react/umd/react.development.js'),
-            // 'react-dom': isOptimize ? join('./node_modules/react-dom/index.js') : join('./node_modules/react-dom/umd/react-dom.development.js'),
-        },
+        // alias: {
+        //     // react: isOptimize ? 'react/index.js' : 'react/umd/react.development.js',
+        //     // 'react-dom': isOptimize ? 'react-dom/index.js' : 'react-dom/umd/react-dom.development.js',
+        //     // react: isOptimize ? join('./node_modules/react/index.js') : join('./node_modules/react/umd/react.development.js'),
+        //     // 'react-dom': isOptimize ? join('./node_modules/react-dom/index.js') : join('./node_modules/react-dom/umd/react-dom.development.js'),
+        //     // react v18
+        //     react: isOptimize ? 'react/umd/react.production.min.js' : 'react/umd/react.development.js',
+        //     'react-dom': isOptimize ? 'react-dom/umd/react-dom.production.min.js' : 'react-dom/umd/react-dom.development.js',
+        // },
     },
     plugins: [
         new webpack.DefinePlugin({
