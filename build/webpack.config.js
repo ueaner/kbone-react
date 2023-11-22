@@ -1,14 +1,18 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import { join, dirname } from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
     mode: 'production',
     entry: {
-        index: path.resolve(__dirname, '../src/main.jsx'),
+        index: join(__dirname, '../src/main.jsx'),
     },
     output: {
-        path: path.resolve(__dirname, '../dist/web'),
+        path: join(__dirname, '../dist/web'),
         publicPath: './',
         filename: '[name].js'
     },
@@ -42,7 +46,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             chunks: ['index'],
-            template: path.join(__dirname, '../index.html'),
+            template: join(__dirname, '../index.html'),
         }),
     ],
-}
+};

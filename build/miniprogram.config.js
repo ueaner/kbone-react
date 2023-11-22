@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	origin: 'https://test.miniprogram.com',
 	entry: '/view1',
 	router: {
@@ -18,4 +18,4 @@ module.exports = {
 	packageConfig: {
 		author: 'wechat-miniprogram-demo',
 	},
-}
+};

@@ -1,6 +1,7 @@
 {
+    "type": "module",
     "scripts": {
-        "build": "rimraf build/web && cross-env NODE_ENV=production webpack --config build/webpack.config.js --progress",
+        "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js --progress",
         "mp": "cross-env NODE_ENV=production webpack --config build/webpack.mp.config.js --progress && pnpm run postmp",
         "postmp": "bash build/postmp.bash"
     },
@@ -21,11 +22,12 @@
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.5.3",
         "mini-css-extract-plugin": "^2.7.6",
+        "miniprogram-element": "^2.2.16",
+        "miniprogram-render": "^2.2.25",
         "mp-webpack-plugin": "latest",
         "stylehacks": "^6.0.0",
+        "terser-webpack-plugin": "^5.3.9",
         "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4",
-        "miniprogram-element": "^2.2.16",
-        "miniprogram-render": "^2.2.25"
+        "webpack-cli": "^5.1.4"
     }
 }
