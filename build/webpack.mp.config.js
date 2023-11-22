@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const MpPlugin = require('mp-webpack-plugin')
 
@@ -24,15 +24,15 @@ module.exports = {
         runtimeChunk: false, // 必需字段，不能修改
         splitChunks: { // 代码分隔配置，不建议修改
             chunks: 'all',
-            minSize: 1000,
+            minSize: 0,
             maxSize: 0,
             minChunks: 1,
             maxAsyncRequests: 100,
             maxInitialRequests: 100,
             automaticNameDelimiter: '~',
-            name: true,
+            name: false,
             cacheGroups: {
-                vendors: {
+                defaultVendors: {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10
                 },
@@ -46,10 +46,9 @@ module.exports = {
 
         minimizer: isOptimize ? [
             // 压缩CSS
-            new OptimizeCSSAssetsPlugin({
-                assetNameRegExp: /\.(css|wxss)$/g,
-                cssProcessor: require('cssnano'),
-                cssProcessorPluginOptions: {
+            new CssMinimizerPlugin({
+                test: /\.(css|wxss)$/g,
+                minimizerOptions: {
                     preset: ['default', {
                         discardComments: {
                             removeAll: true,
@@ -57,7 +56,6 @@ module.exports = {
                         minifySelectors: false, // 因为 wxss 编译器不支持 .some>:first-child 这样格式的代码，所以暂时禁掉这个
                     }],
                 },
-                canPrint: false
             }),
             // 压缩 js
             new TerserPlugin({
@@ -81,15 +79,17 @@ module.exports = {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'file-loader',
             options: {
-                name: '[name].[ext]?[hash]',
+                name: '[name].[ext]?[contenthash]',
             },
         }]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.json'],
+        extensions: ['.*', '.js', '.jsx', '.json'],
         alias: {
             react: isOptimize ? 'react/index.js' : 'react/umd/react.development.js',
             'react-dom': isOptimize ? 'react-dom/index.js' : 'react-dom/umd/react-dom.development.js',
+            // react: isOptimize ? path.resolve('./node_modules/react/index.js') : path.resolve('./node_modules/react/umd/react.development.js'),
+            // 'react-dom': isOptimize ? path.resolve('./node_modules/react-dom/index.js') : path.resolve('./node_modules/react-dom/umd/react-dom.development.js'),
         },
     },
     plugins: [
@@ -101,4 +101,7 @@ module.exports = {
         }),
         new MpPlugin(require('./miniprogram.config'))
     ],
+    stats: {
+        errorDetails: true
+    }
 }

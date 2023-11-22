@@ -4,18 +4,18 @@ module.exports = {
 	router: {
 		index: ['/view1', '/view2'],
 	},
-	redirect: {	
-		notFound: 'index',	
+	redirect: {
+		notFound: 'index',
 		accessDenied: 'index',
 	},
 	app: {
 		navigationBarTitleText: 'miniprogram-project',
 	},
 	projectConfig: {
-		appid: 'wx14c7c4cd189644a1',
+		appid: 'touristappid',
 		projectname: 'kbone-demo16',
 	},
 	packageConfig: {
-		author: 'wechat-miniprogram',
+		author: 'wechat-miniprogram-demo',
 	},
 }
