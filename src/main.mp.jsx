@@ -1,5 +1,5 @@
 import React from "react";
-import { render, h } from "react-dom";
+import { createRoot } from 'react-dom/client';
 import App from "./app";
 
 export default function createApp() {
@@ -7,5 +7,6 @@ export default function createApp() {
   container.id = "app";
   document.body.appendChild(container);
 
-  render(<App />, container);
+  // 显示 React 组件
+  createRoot(container).render(<App />);
 }
