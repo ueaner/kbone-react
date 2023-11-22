@@ -28,12 +28,12 @@ npm run mp
 - babel v7
 - webpack v5
 - css modules
+- postcss
 - 相关 css-loader file-loader 等插件也已更新到最新
 
 如果项目中使用 react-router, 可以考虑独立出 router 部分, Web 端使用 v6, 小程序中使用 v5.
 
 想要支持 typescript 可使用 [ts 分支].
-
 
 ## 其他
 
