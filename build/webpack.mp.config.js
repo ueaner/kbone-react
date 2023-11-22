@@ -69,7 +69,15 @@ module.exports = {
             test: /\.css$/,
             use: [
                 MiniCssExtractPlugin.loader,
-                'css-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        // importLoaders: 1,
+                        modules: {
+                            localIdentName: "[path][name]__[local]--[hash:5]",
+                        },
+                    },
+                },
             ],
         }, {
             test: /\.[t|j]sx?$/,
