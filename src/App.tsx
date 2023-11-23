@@ -2,13 +2,17 @@
 // All packages except `@mantine/hooks` require styles imports
 import "@mantine/core/styles.css";
 
-import { MantineProvider } from "@mantine/core";
-import Home from "./pages/Home";
+import { MantineProvider, Center } from "@mantine/core";
+import Home from "./pages/Home/Home";
+import Admin from "./pages/Admin/Admin";
 
 export default function App() {
   return (
     <MantineProvider>
-      <Home />
+      <Center style={{ padding: "16px" }}>
+        <Home />
+        <Admin />
+      </Center>
     </MantineProvider>
   );
 }

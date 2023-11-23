@@ -50,15 +50,19 @@ export default {
         test: /\.css$/,
         use: [
           "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              modules: {
-                localIdentName: "[name]__[local]--[hash:5]",
-              },
-            },
-          },
+          "css-loader",
+          // {
+          //   loader: "css-loader",
+          //   options: {
+          //     importLoaders: 1,
+          //     // CSS modules 默认启用, 不需要再专门配置
+          //     // https://github.com/webpack-contrib/css-loader#modules
+          //     // Default: undefined - enable CSS modules for /\.module\.\w+$/i
+          //     modules: {
+          //       localIdentName: "[name]__[local]--[hash:5]",
+          //     },
+          //   },
+          // },
           // postcss config 使用 .json 文件, mjs 加载不了
           "postcss-loader",
         ],

@@ -1,0 +1,25 @@
+.root {
+  padding: 20px;
+  text-align: center;
+  background-color: #EEF3FF;
+  max-width: rem(300px);
+}
+
+.title {
+  font-size: 16px;
+  color: green;
+}
+
+.content {
+  font-size: rem(16px);
+  color: light-dark(magenta, cyan);
+
+  @mixin hover {
+    color: blue;
+  }
+
+  @media (min-width: em(576px)) {
+    font-size: rem(32px);
+    color: black;
+  }
+}
