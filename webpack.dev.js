@@ -13,6 +13,7 @@ export default {
     port: 1421,
     host: "0.0.0.0",
     hot: true,
+    historyApiFallback: true,
   },
   devtool: "source-map",
 
