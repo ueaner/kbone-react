@@ -6,5 +6,8 @@ export default function createApp() {
   container.id = "root";
   document.body.appendChild(container);
 
-  createRoot(container).render(<App />);
+  const rootNode = document.getElementById("root") as HTMLElement;
+  createRoot(rootNode).render(<App />);
+
+  // createRoot(container).render(<App />);
 }

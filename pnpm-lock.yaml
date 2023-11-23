@@ -43,6 +43,9 @@ devDependencies:
   '@babel/runtime':
     specifier: ^7.23.4
     version: 7.23.4
+  '@csstools/postcss-debug-logger':
+    specifier: ^2.0.0
+    version: 2.0.0(postcss@8.4.31)
   '@types/react':
     specifier: ^18.2.38
     version: 18.2.38
@@ -1412,6 +1415,15 @@ packages:
       '@babel/helper-string-parser': 7.23.4
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@csstools/postcss-debug-logger@2.0.0(postcss@8.4.31):
+    resolution: {integrity: sha512-8dA/627tmCXPAQBl8k655ZE5cLLUqeCOERwtweu/OGkYV5dTORXl2wlcYQ3moSDbDAOfJl+LHEAkhYibVTV1Kg==}
+    engines: {node: ^14 || ^16 || >=18}
+    peerDependencies:
+      postcss: ^8.4
+    dependencies:
+      postcss: 8.4.31
     dev: true
 
   /@discoveryjs/json-ext@0.5.7:
