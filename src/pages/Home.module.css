@@ -1,0 +1,17 @@
+.title {
+  font-size: 16px;
+  color: red;
+}
+.content {
+  font-size: rem(16px);
+  color: light-dark(green, blue);
+
+  @mixin hover {
+    color: orange;
+  }
+
+  @media (min-width: em(576px)) {
+    font-size: rem(32px);
+    color: pink;
+  }
+}

@@ -1,8 +1,14 @@
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import "@mantine/core/styles.css";
+
+import { MantineProvider } from "@mantine/core";
+import Home from "./pages/Home";
+
 export default function App() {
   return (
-    <>
-      <h1>React</h1>
-      <p>Hello World!</p>
-    </>
+    <MantineProvider>
+      <Home />
+    </MantineProvider>
   );
 }

@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+/** @returns {import('webpack').Configuration} Webpack Configuration */
 export default {
   mode: "development",
   devServer: {
@@ -47,7 +48,20 @@ export default {
     rules: [
       {
         test: /\.css$/,
-        use: ["postcss-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[name]__[local]--[hash:5]",
+              },
+            },
+          },
+          // postcss config 使用 .json 文件, mjs 加载不了
+          "postcss-loader",
+        ],
       },
       {
         test: /\.[t|j]sx?$/,
