@@ -1,11 +1,10 @@
-import { createRoot } from 'react-dom/client';
-import App from "./app";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 
 export default function createApp() {
   const container = document.createElement("div");
-  container.id = "app";
+  container.id = "root";
   document.body.appendChild(container);
 
-  // 显示 React 组件
   createRoot(container).render(<App />);
 }
